@@ -1,6 +1,5 @@
 <!--
   Sin modificar el HTML debes escribir los selectores que se necesitan para cada elemento pedido.
-
   Seleccionar el H1 y cambiar el color de texto a rojo
   Seleccionar la sección 1 (section-1) y agregar el color de fondo amarillo
   Seleccionar el elemento con clase counter e incrementar en 10 su valor
@@ -48,7 +47,6 @@
           <td> 4 </td>
           <td> 4 </td>
         </tr>
-
       </tbody>
     </table>
 
@@ -62,5 +60,41 @@
 
       </fieldset>
     </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+      //Seleccionar el H1 y cambiar el color de texto a rojo
+      $('h1').css('color','red');
+
+      //Seleccionar la sección 1 (section-1) y agregar el color de fondo amarillo
+      $('.section-1').css('background-color','yellow');
+
+      //Seleccionar el elemento con clase counter e incrementar en 10 su valor
+      //html toma todos los elementos (<b>,<i>,h1...)
+      var numero = $('.counter').html();
+
+      $('.counter').html(Number(numero)+10);
+
+      //Al hacerle click al elemento con id row-3 se debe agregar el color de fondo gris y además debe tener una transición de 1 segundo
+      $('#row-3').click(function(){
+        //Forma 1
+        /*$('#row-3').css('{
+          backgroundColor: 'gray';
+          transition: 'all 2s';
+        });*/
+
+        //Forma 2 con libreria jquery ui
+        $('#row-3').animate({
+          backgroundColor: 'gray',
+        },1000);
+      });
+
+      //Seleccionar el h1 dentro de la sección y duplicar su font-size
+      var duplicar = $('.section-1 h1').css('font-size');
+      $('.section-1 h1').css('font-size', parseInt(duplicar)*2);
+
+      //Seleccionar el último row dentro de la tabla (sin utilizar el id, puesto que el número de elementos podría cambiar) y agregar color de fondo rojo
+      $('.row').last().css('background-color' , 'red').css('color','white');
+    </script>
   </body>
 </html>
